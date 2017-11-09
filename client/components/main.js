@@ -15,13 +15,14 @@ const Main = (props) => {
 
   return (
     <div>
-      <h1>BOILERMAKER</h1>
+      <h1>Find Friends!</h1>
       <nav>
+      <Link to="/">Home</Link>                                  
+      <Link to="/event">Events</Link>     
         {
           isLoggedIn
             ? <div>
               {/* The navbar will show these links after you log in */}
-              <Link to="/home">Home</Link>
               <a href="#" onClick={handleClick}>Logout</a>
             </div>
             : <div>
