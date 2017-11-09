@@ -23,7 +23,7 @@ const getEvents = event => ({type: GET_EVENTS, event})
  /**
  * REDUCER
  */
-export default function(event = {}, action){
+export default function(event = [], action){
   switch (action.type){
     case GET_EVENTS:
       return action.event

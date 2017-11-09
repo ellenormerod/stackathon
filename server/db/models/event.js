@@ -10,16 +10,16 @@ const Event = db.define('event', {
     type: Sequelize.TEXT
   },
   startdate:{
-    type: Sequelize.DATE
+    type: Sequelize.STRING
   },
   enddate:{
-    type: Sequelize.DATE    
+    type: Sequelize.STRING
   },
   starttime: {
     type: Sequelize.TIME
   },
   endtime:{
-    type: Sequelize.TIME    
+    type: Sequelize.TIME
   },
   location:{
     type: Sequelize.STRING

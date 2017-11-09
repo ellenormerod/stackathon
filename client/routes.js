@@ -4,7 +4,7 @@ import {Router} from 'react-router'
 import {Route, Switch} from 'react-router-dom'
 import PropTypes from 'prop-types'
 import history from './history'
-import {Main, Login, Signup, Home, UserHome, Event} from './components'
+import {Main, Login, Signup, Home, UserHome, Event, Profile} from './components'
 import {me} from './store'
 
 /**
@@ -16,7 +16,7 @@ class Routes extends Component {
   }
 
   render () {
-    const {isLoggedIn} = this.props
+    const {isLoggedIn, user} = this.props
 
     return (
       <Router history={history}>
@@ -27,7 +27,8 @@ class Routes extends Component {
             <Route path="/signup" component={Signup} />
             <Route exact path="/" component={Home} />
             <Route path="/home" component={UserHome} />    
-            <Route path="/event" component={Event} />       
+            <Route path="/event" component={Event} />      
+            <Route path={`/${user.id}`} component={Profile} />                   
             {/* Displays our Login component as a fallback */}
             <Route component={Login} />
           </Switch>
@@ -44,7 +45,8 @@ const mapState = (state) => {
   return {
     // Being 'logged in' for our purposes will be defined has having a state.user that has a truthy id.
     // Otherwise, state.user will be an empty object, and state.user.id will be falsey
-    isLoggedIn: !!state.user.id
+    isLoggedIn: !!state.user.id,
+    user: state.user
   }
 }
 

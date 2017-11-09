@@ -1,15 +1,14 @@
 const User = require('./user')
 const Event = require('./event')
-const Category = require('./category')
-const EventCategory = require('./eventcategory')
+const UserEvent = require('./userevent')
 /**
  * If we had any associations to make, this would be a great place to put them!
  * ex. if we had another model called BlogPost, we might say:
  *
  *    BlogPost.belongsTo(User)
  */
-Event.belongsToMany(Category, {through: EventCategory})
-Category.belongsToMany(Event, {through: EventCategory})
+Event.belongsToMany(User, {through: UserEvent})
+User.belongsToMany(Event, {through: UserEvent})
 
 /**
  * We'll export all of our models here, so that any time a module needs a model,
@@ -20,6 +19,5 @@ Category.belongsToMany(Event, {through: EventCategory})
 module.exports = {
   User,
   Event,
-  Category,
-  EventCategory
+  UserEvent
 }
