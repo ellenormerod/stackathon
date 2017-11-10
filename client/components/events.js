@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import store from '../store/index';
-import { fetchEvents, fetchUserEvents, postEvent } from '../store'
+import { fetchEvents, fetchUserEvents, postEvent, fetchEventUsers } from '../store'
 /**
  * COMPONENT
  */
@@ -18,7 +18,7 @@ class Event extends React.Component {
     let { event, isLoggedIn, handleClick, handleChange, user} = this.props
     return (
       <div>
-        <select disabled={!isLoggedIn} onChange={event => handleChange(event, user.id)}>
+        <select disabled={!isLoggedIn} onChange={event => handleChange(event, user.id, 1)}>
           <option value="recent">Recently added</option>
           <option value="recommendation">By recommendation</option>
           <option value="date">By date</option>
@@ -47,7 +47,8 @@ const mapState = state => {
   return {
     isLoggedIn: !!state.user.id,
     event: state.event,
-    user: state.user
+    user: state.user,
+    userevent: state.userevent
   }
 }
 
@@ -59,9 +60,11 @@ const mapDispatch = dispatch => {
     handleClick(eventId, userId) {
       dispatch(postEvent(eventId, userId))
     },
-    handleChange(event, userId){
+    handleChange(event, userId, eventId){
       if (event.target.value === 'recommendation') {
+        console.log('user id', userId)
         dispatch(fetchUserEvents(userId))
+        dispatch(fetchEventUsers(eventId))
       }
     }
   }

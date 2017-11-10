@@ -15,7 +15,7 @@ const Main = (props) => {
 
   return (
     <div>
-      <h1>Find Friends!</h1>
+      <h1>Newcomers!</h1>
       <nav>
       <Link to="/">Home</Link>                                  
       <Link to="/event">Events</Link>     
