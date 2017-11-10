@@ -25,13 +25,13 @@ class Event extends React.Component {
         </select>
         {event.map(eachEvent => {
           return (
-            <div key={eachEvent.id}>
+            <div className="ui container" key={eachEvent.id}>
               <h3 >{eachEvent.title}</h3>
               <p >{eachEvent.description}</p>
               <p ><small >{eachEvent.startdate}</small></p>
               <p ><small >{eachEvent.enddate}</small></p>
               <p ><small >{eachEvent.starttime} - {eachEvent.endtime}</small></p>
-              <button disabled={!isLoggedIn} onClick={() => handleClick(eachEvent.id, user.id)}>Attend</button>
+              <button className="ui teal button" disabled={!isLoggedIn} onClick={() => handleClick(eachEvent.id, user.id)}>Attend</button>
             </div>
           )
         })}
