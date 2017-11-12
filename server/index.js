@@ -33,7 +33,7 @@ passport.deserializeUser((id, done) =>
 const createApp = () => {
   // logging middleware
   app.use(morgan('dev'))
-
+  
   // body parsing middleware
   app.use(bodyParser.json())
   app.use(bodyParser.urlencoded({ extended: true }))
@@ -89,7 +89,6 @@ const startListening = () => {
   // set up our socket control center
   const io = socketio(server)
   require('./socket')(io)
-  require('./cronofy')
 }
 
 const syncDb = () => db.sync()

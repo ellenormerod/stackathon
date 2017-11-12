@@ -20,6 +20,11 @@ const getEvents = event => ({type: GET_EVENTS, event})
     .catch(err => console.error('Fetching events was unsuccessful', err))
  }
 
+ export const fetchEventsByDate = () => dispatch => {
+  axios.get('/api/events/date')
+   .then(res => dispatch(getEvents(res.data)))
+   .catch(err => console.error('Fetching events was unsuccessful', err))
+ }
  /**
  * REDUCER
  */

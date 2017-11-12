@@ -16,3 +16,16 @@ router.post('/', (req, res, next) => {
     .then(userevent => res.json(userevent))
     .catch(next)
 })
+
+router.delete('/:eventId/:userId', (req, res, next) => {
+  const eventId = req.params.eventId
+  const userId = req.params.userId
+  UserEvent.destroy({
+    where: {
+      userId: userId,
+      eventId: eventId
+    }
+  })
+    .then(() => res.status(204).end())
+    .catch(next);
+})

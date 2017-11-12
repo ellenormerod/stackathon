@@ -1,31 +1,37 @@
 import React from 'react'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import {auth} from '../store'
+import { auth } from '../store'
 
 /**
  * COMPONENT
  */
 const AuthForm = (props) => {
-  const {name, displayName, handleSubmit, error} = props
+  const { name, displayName, handleSubmit, error } = props
 
   return (
-    <div>
-      <form onSubmit={handleSubmit} name={name}>
-        <div>
-          <label htmlFor="email"><small>Email</small></label>
-          <input name="email" type="text" />
+    <div className="ui inverted vertical masthead center aligned segment">
+      <div className="ui middle aligned center aligned grid">
+        <div className="column" >
+          <form className="ui large form" onSubmit={handleSubmit} name={name}>
+            <div className="ui compact inverted segments" >
+              <div className="field">
+                <h3 htmlFor="email"><small>Email</small></h3>
+                <input name="email" type="text" />
+              </div>
+              <div className="field">
+                <h3 htmlFor="password"><small>Password</small></h3>
+                <input name="password" type="password" />
+              </div>
+              <div>
+                <button className="ui button" type="submit">{displayName}</button>
+              </div>
+            </div>
+            {error && error.response && <div> {error.response.data} </div>}
+          </form>
+          <a href="/auth/google">{displayName} with Google</a>
         </div>
-        <div>
-          <label htmlFor="password"><small>Password</small></label>
-          <input name="password" type="password" />
-        </div>
-        <div>
-          <button className="ui button" type="submit">{displayName}</button>
-        </div>
-        {error && error.response && <div> {error.response.data} </div>}
-      </form>
-      <a href="/auth/google">{displayName} with Google</a>
+      </div>
     </div>
   )
 }
@@ -55,7 +61,7 @@ const mapSignup = (state) => {
 
 const mapDispatch = (dispatch) => {
   return {
-    handleSubmit (evt) {
+    handleSubmit(evt) {
       evt.preventDefault()
       const formName = evt.target.name
       const email = evt.target.email.value

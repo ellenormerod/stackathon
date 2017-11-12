@@ -27,7 +27,6 @@ class Routes extends Component {
             <Route path="/signup" component={Signup} />
             <Route exact path="/" component={Home} />
             <Route path="/home" component={UserHome} />    
-            <Route path="/event" component={Event} />      
             <Route path={`/${user.id}`} component={Profile} />                   
             {/* Displays our Login component as a fallback */}
             <Route component={Login} />

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { withRouter, Link } from 'react-router-dom'
 import { logout } from '../store'
-
+import Home from './home'
 /**
  * COMPONENT
  *  The Main component is our 'picture frame' - it displays the navbar and anything
@@ -14,30 +14,30 @@ const Main = (props) => {
   const { children, handleClick, isLoggedIn, user } = props
 
   return (
-    <div className="ui container">
-      <div className="ui grid">
-      <nav className="row">
-        <h1>Newcomers!</h1>
-          <Link to="/">Home</Link>
-          <Link to="/event">Events</Link>
+    <div >
+      <div className="ui inverted vertical masthead center aligned segment">
+        <nav className="ui large secondary menu">
+          <div className="item">
+            <Link className="ui black button" to="/">Home</Link>
+          </div>
           {
             isLoggedIn
-              ? <div>
+              ? <div className="right item">
                 {/* The navbar will show these links after you log in */}
-                <Link to={`/${user.id}`}>Profile</Link>
-                <a href="#" onClick={handleClick}>Logout</a>
+                <Link className="ui black button" to={`/${user.id}`}>Profile</Link>
+                <a className="ui black button" href="#" onClick={handleClick}>Logout</a>
               </div>
-              : <div>
+              : <div className="right item">
                 {/* The navbar will show these links before you log in */}
-                <Link to="/login">Login</Link>
-                <Link to="/signup">Sign Up</Link>
+                <Link className="ui black button" to="/login">Login</Link>
+                <Link className="ui black button" to="/signup">Sign Up</Link>
               </div>
           }
         </nav>
-        <hr />
-        {children}
       </div>
+      {children}
     </div>
+
   )
 }
 

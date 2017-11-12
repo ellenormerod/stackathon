@@ -2,6 +2,14 @@ const router = require('express').Router()
 const {Event, User} = require('../db/models')
 module.exports = router
 
+router.get('/date', (req, res, next) => {
+  Event.findAll({
+    order: [ ['startdate', 'ASC'] ]
+  })
+  .then(event => res.json(event))
+  .catch(next)
+})
+
 router.get('/', (req, res, next) => {
   Event.findAll()
     .then(event => res.json(event))
