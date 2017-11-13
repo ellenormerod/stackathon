@@ -18,7 +18,7 @@ const deleteUserEvent = id => ({type: DELETE_USER_EVENT, id})
  * THUNK CREATORS
  */
 
-export const fetchUserRec = userId => dispatch => {
+export const fetchUserEvents = userId => dispatch => {
   axios.get(`/api/userevents/${userId}`)
     .then(res => dispatch(getUserEvents(res.data)))
     .catch(err => console.error('Fetching this users events was unsuccessful', err))

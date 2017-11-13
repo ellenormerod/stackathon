@@ -1,7 +1,7 @@
 
 // import Cronofy from 'cronofy';
 // import axios from 'axios';
-let Cronofy = require('cronofy');
+// let Cronofy = require('cronofy');
 
 
 // let options = {
@@ -14,27 +14,44 @@ let Cronofy = require('cronofy');
 //     console.log('CALENDAR', calendars)
 //   });
 
-const createCalendarEvent = (summary, description, start, end, location, id) => {
-  console.log('HEY I DID IT', summary, description, start, end, location, id)
-  // "2017-11-18T21:30:00CST"
-  let client = new Cronofy({
-    client_id: 'ja8X9QYKoqqMc7OrxUEOAWvnGkD_9wWi',
-    client_secret: 'ujp4a6Y1JERkmxJDfWHB_TYzG6D2momnJ-FzQ0zPRi2H-NYT9zGD1XdXpR5QjfhnDolmly8KDQBJKnBSYDWq9Q',
-    access_token: '8YQblelE_J4LGTDMz6uVt1EIufiPzQf9',
-  });
+// const createCalendarEvent = (summary, description, start, end, location, id) => {
+//   console.log('HEY I DID IT', summary, description, start, end, location, id)
+//   // "2017-11-18T21:30:00CST"
+//   // let client = new Cronofy({
+//   //   client_id: 'ja8X9QYKoqqMc7OrxUEOAWvnGkD_9wWi',
+//   //   client_secret: 'ujp4a6Y1JERkmxJDfWHB_TYzG6D2momnJ-FzQ0zPRi2H-NYT9zGD1XdXpR5QjfhnDolmly8KDQBJKnBSYDWq9Q',
+//   //   access_token: '8YQblelE_J4LGTDMz6uVt1EIufiPzQf9',
+//   // });
 
-  let options = {
-    calendar_id: "cal_WgNdvo2@z0A0AARz_IxvIQlgfunaFtiEWvAeOoQ",
-    event_id: id,
-    summary: summary,
-    description: description,
-    start: start,
-    end: end,
-    location: {
-      description: location
-    }
-  };
+//   let options = {
+//     calendar_id: "cal_WgNdvo2@z0A0AARz_IxvIQlgfunaFtiEWvAeOoQ",
+//     event_id: id,
+//     summary: summary,
+//     description: description,
+//     start: start,
+//     end: end,
+//     location: {
+//       description: location
+//     }
+//   };
 
+//   $.ajax({
+//     type: 'POST',
+//     async: false,
+//     url: 'https://api.cronofy.com/v1/calendars/cal_WgNdvo2@z0A0AARz_IxvIQlgfunaFtiEWvAeOoQ/events',
+//     data: options,
+//     headers: {
+//       'Access-Control-Allow-Origin': 'http://localhost:8080',
+//       client_id: 'ja8X9QYKoqqMc7OrxUEOAWvnGkD_9wWi',
+//       client_secret: 'ujp4a6Y1JERkmxJDfWHB_TYzG6D2momnJ-FzQ0zPRi2H-NYT9zGD1XdXpR5QjfhnDolmly8KDQBJKnBSYDWq9Q',
+//       access_token: '8YQblelE_J4LGTDMz6uVt1EIufiPzQf9',
+//       'Content-Type': 'application/json',
+//       Authorization: 'Bearer 8YQblelE_J4LGTDMz6uVt1EIufiPzQf9',
+//     },
+//     success: (d) => {
+//       console.log('success', d)
+//     }
+//   })
   // client.createEvent(options)
   //   .then(() => {
   //       // Success
@@ -54,7 +71,7 @@ const createCalendarEvent = (summary, description, start, end, location, id) => 
   // })
   //   .then(res => console.log('WHATTTTTT', res.data))
 
-}
+// }
 
 
 // let options = {
@@ -78,4 +95,4 @@ const createCalendarEvent = (summary, description, start, end, location, id) => 
 //     // success
 //   });
 
-module.exports = createCalendarEvent
+// module.exports = createCalendarEvent

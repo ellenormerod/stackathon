@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { fetchUserRec, removeUserEvent } from '../store'
+import { fetchUserEvents, removeUserEvent } from '../store'
 
 /**
  * COMPONENT
@@ -61,7 +61,7 @@ const mapState = (state) => {
 const mapDispatch = dispatch => {
   return {
     loadEvents(userId) {
-      dispatch(fetchUserRec(userId))
+      dispatch(fetchUserEvents(userId))
     },
     handleClick(eventId, userId){
       dispatch(removeUserEvent(eventId, userId))

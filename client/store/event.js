@@ -25,6 +25,12 @@ const getEvents = event => ({type: GET_EVENTS, event})
    .then(res => dispatch(getEvents(res.data)))
    .catch(err => console.error('Fetching events was unsuccessful', err))
  }
+
+ export const fetchUserRec = userId => dispatch => {
+  axios.get(`/api/userevents/rec/${userId}`)
+    .then(res => dispatch(getEvents(res.data)))
+    .catch(err => console.error('Fetching this users recommended events was unsuccessful', err))    
+}
  /**
  * REDUCER
  */
