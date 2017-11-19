@@ -1,3 +1,6 @@
+## Newcomers!
+Sign up/log in to be able to attend events. Also view events by recommendation made for you!
+
 ## Start
 git clone this repository
 
